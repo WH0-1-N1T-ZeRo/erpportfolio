@@ -1,0 +1,43 @@
+.drop-shadow-avatar {
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+/* Additional styling for bubbles */
+.bubble {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    animation: bubble-animation 5s ease-in infinite;
+}
+
+
+@keyframes bubble-animation {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-200px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-400px) scale(1);
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .drop-shadow-avatar {
+        filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+    }
+}
+
+/* Sembunyikan di bawah sm (xs) dan di atas md (lg ke atas) */
+@media (max-width: 639px),
+(min-width: 1024px) {
+    .custom-sm-md-only {
+        display: none !important;
+    }
+}

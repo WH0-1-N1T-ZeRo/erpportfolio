@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Programmer - Fahmi Nur Fadillah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-900 text-slate-200">
+    <!-- Header / Navbar (Desktop) -->
+    <header class="hidden md:block fixed top-0 left-0 w-full bg-slate-800 bg-opacity-90 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-teal-300 text-2xl font-bold">Fahmi Nur Fadillah</h1>
+            <nav class="space-x-4 text-sm md:text-base">
+                <a href="#home" class="hover:text-teal-300 transition">Home</a>
+                <a href="#about" class="hover:text-teal-300 transition">About</a>
+                <a href="#skills" class="hover:text-teal-300 transition">Skill</a>
+                <a href="#projects" class="hover:text-teal-300 transition">Project</a>
+                <a href="#testimonials" class="hover:text-teal-300 transition">Testimonials</a>
+                <a href="#contact" class="hover:text-teal-300 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar Navbar (khusus sm dan md) -->
+    <div x-data="{ open: false }" class="sidebar-tablet md:hidden block custom-sm-md-only">
+        <button @click="open = true" class="fixed top-4 left-4 z-50 bg-teal-300 text-slate-900 p-2 rounded shadow-md">
+            ☰
+        </button>
+        <aside x-show="open" @click.away="open = false" x-transition
+            class="fixed top-0 left-0 h-full w-64 bg-slate-800 z-50 p-6 shadow-lg transform transition duration-300">
+            <div class="w-full text-right">
+                <button @click="open = false" class="mb-6 text-teal-300 text-3xl font-bold">×</button>
+            </div>
+            <nav class="flex flex-col space-y-4 text-slate-200">
+                <a href="#home" class="hover:text-teal-300 transition">Home</a>
+                <a href="#about" class="hover:text-teal-300 transition">About</a>
+                <a href="#skills" class="hover:text-teal-300 transition">Skill</a>
+                <a href="#projects" class="hover:text-teal-300 transition">Project</a>
+                <a href="#testimonials" class="hover:text-teal-300 transition">Testimonials</a>
+                <a href="#contact" class="hover:text-teal-300 transition">Contact</a>
+            </nav>
+        </aside>
+    </div>
+
+
+
+    <!-- Bottom Navbar (Mobile - Android Style) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full bg-slate-800 text-slate-200 flex justify-around py-3 z-50 shadow-inner sm:hidden">
+        <a href="#home" class="flex flex-col items-center hover:text-teal-300">
+            <i class="fas fa-home mb-2"></i>
+            <span class="text-xs">Home</span>
+        </a>
+        <a href="#skills" class="flex flex-col items-center hover:text-teal-300">
+            <i class="fas fa-clock mb-2"></i>
+            <span class="text-xs">Skills</span>
+        </a>
+        <a href="#projects" class="flex flex-col items-center hover:text-teal-300">
+            <i class="fas fa-list mb-2"></i>
+            <span class="text-xs">Project</span>
+        </a>
+        <a href="#contact" class="flex flex-col items-center hover:text-teal-300">
+            <i class="fas fa-users mb-2"></i>
+            <span class="text-xs">Contact</span>
+        </a>
+    </nav>
+
+    <!-- Script Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden hero-bubble-wrapper">
+        <section id="home"
+            class="min-h-screen flex flex-col justify-center items-center text-center pt-24 px-6 relative z-10">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 text-teal-300 animate-pulse">Hi, I am Fahmi Nur Fadillah</h2>
+            <p class="text-xl md:text-2xl max-w-2xl mb-6">Programmers who focus on developing web application &
+                Information systems use Laravel, Odoo (Python), and Tailwind CSS</p>
+            <a href="#projects"
+                class="bg-teal-300 text-slate-900 font-bold py-3 px-6 rounded-full hover:bg-teal-400 transition duration-300 capitalize">
+                My portfolio
+            </a>
+        </section>
+        <!-- Bubble background -->
+        <div class="bubble-container absolute inset-0 z-0 pointer-events-none"></div>
+    </div>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-slate-800">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+            <!-- Image -->
+            <!-- Avatar dengan drop shadow khusus -->
+            <div class="flex justify-center">
+                <img src="programmer.png" alt="Programmer" class="w-3/4 md:w-96 drop-shadow-avatar">
+            </div>
+
+            <!-- Text + Accordion -->
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-teal-300 mb-6 text-left">About me</h2>
+
+                <!-- Accordion Panel -->
+                <div x-data="{ open1: true, open2: false, open3: false }" class="space-y-4 text-left text-slate-200">
+                    <!-- Panel 1 -->
+                    <div class="border border-slate-600 rounded-lg">
+                        <button @click="open1 = !open1; open2 = false; open3 = false"
+                            class="w-full px-4 py-3 text-left text-teal-300 font-semibold bg-slate-700 rounded-t-lg">
+                            👨‍💻 Background
+                        </button>
+                        <div x-show="open1" x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform -translate-y-2 scale-95"
+                            x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave-end="opacity-0 transform -translate-y-2 scale-95"
+                            class="px-4 py-3 bg-slate-800 rounded-b-lg">
+                            I am a web developer with more than 3 years of experience, specifically in
+                            Web -based application development such as post (cashier), booking systems, and MSME
+                            websites
+                            Custom.I prioritize Clean Code and UI that are easy to use.
+                        </div>
+                    </div>
+
+                    <!-- Panel 2 -->
+                    <div class="border border-slate-600 rounded-lg">
+                        <button @click="open2 = !open2; open1 = false; open3 = false"
+                            class="w-full px-4 py-3 text-left text-teal-300 font-semibold bg-slate-700 rounded-t-lg">
+                            🛠️ Expertise & Tools
+                        </button>
+                        <div x-show="open2" x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform -translate-y-2 scale-95"
+                            x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave-end="opacity-0 transform -translate-y-2 scale-95"
+                            class="px-4 py-3 bg-slate-800 rounded-b-lg">
+                            I used to use Laravel, Tailwind CSS, Odoo (Python), GIT, SQL
+                            Servers, and deployment to VPS and Shared Hosting.My focus is on efficiency and
+                            flexibility in development.
+                        </div>
+                    </div>
+
+                    <!-- Panel 3 -->
+                    <div class="border border-slate-600 rounded-lg">
+                        <button @click="open3 = !open3; open1 = false; open2 = false"
+                            class="w-full px-4 py-3 text-left text-teal-300 font-semibold bg-slate-700 rounded-t-lg">
+                            🤝 Availability
+                        </button>
+                        <div x-show="open3" x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform -translate-y-2 scale-95"
+                            x-transition:enter-end="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave="transition ease-in duration-200"
+                            x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
+                            x-transition:leave-end="opacity-0 transform -translate-y-2 scale-95"
+                            class="px-4 py-3 bg-slate-800 rounded-b-lg">
+                            I am open to freelance projects, remote work, startup collaboration, or manufacturing
+                            business internal system.Don't hesitate to contact me to discuss further!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal-300 text-center mb-10 capitalize">Main expertise</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Frontend -->
+                <div class="relative bg-slate-800 p-6 pt-12 rounded-xl shadow-md">
+                    <h3
+                        class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-slate-900 px-4 py-1 rounded-full text-xl font-semibold text-teal-300 shadow-md">
+                        Frontend</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
+                                alt="HTML5" width="40" height="40" />
+                            <span class="text-slate-200">HTML5</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
+                                alt="CSS3" width="40" height="40" />
+                            <span class="text-slate-200">CSS3</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                                alt="JavaScript" width="40" height="40" />
+                            <span class="text-slate-200">JavaScript</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg"
+                                alt="Vue.js" width="40" height="40" />
+                            <span class="text-slate-200">Vue.js</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind"
+                                width="40" height="40" />
+                            <span class="text-slate-200">Tailwind CSS</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap"
+                                width="40" height="40" />
+                            <span class="text-slate-200">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="relative bg-slate-800 p-6 pt-12 rounded-xl shadow-md">
+                    <h3
+                        class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-slate-900 px-4 py-1 rounded-full text-xl font-semibold text-teal-300 shadow-md">
+                        Backend</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
+                                alt="PHP" width="40" height="40" />
+                            <span class="text-slate-200">PHP</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" width="40" height="40" />
+                            <span class="text-slate-200">Laravel</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="Kotlin"
+                                width="40" height="40" />
+                            <span class="text-slate-200">Kotlin</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                                alt="Python" width="40" height="40" />
+                            <span class="text-slate-200">Python</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                                alt="Java" width="40" height="40" />
+                            <span class="text-slate-200">Java</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg"
+                                alt="Android" width="40" height="40" />
+                            <span class="text-slate-200">Android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Deployment -->
+                <div class="relative bg-slate-800 p-6 pt-12 rounded-xl shadow-md">
+                    <h3
+                        class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-slate-900 px-4 py-1 rounded-full text-xl font-semibold text-teal-300 shadow-md">
+                        Tools</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="40"
+                                height="40" />
+                            <span class="text-slate-200">Git</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
+                                alt="PostgreSQL" width="40" height="40" />
+                            <span class="text-slate-200">PostgreSQL</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
+                                alt="MongoDB" width="40" height="40" />
+                            <span class="text-slate-200">MongoDB</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                                alt="MySQL" width="40" height="40" />
+                            <span class="text-slate-200">MySQL</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman"
+                                width="40" height="40" />
+                            <span class="text-slate-200">Postman</span>
+                        </div>
+                        <div class="flex items-center justify-self-start space-x-3">
+                            <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg"
+                                alt="SQL Server" width="40" height="40" />
+                            <span class="text-slate-200">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal-300 text-center mb-12">Superior project</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Repeatable Card -->
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Retail Shop Pos</h3>
+                    <p class="mb-2">Web -based cashier system with stock management, transactions, PDF reports, and
+                        Dashboard Admin is responsive.</p>
+                    <span class="text-sm text-teal-300">Odoo , Tailwind</span>
+                </div>
+
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Booking Studio System</h3>
+                    <p class="mb-2">Applications for Daily Booking & Membership Studio Yoga with Payment Integration
+                        and notification system.</p>
+                    <span class="text-sm text-teal-300">Laravel, MySQL, Midtrans</span>
+                </div>
+
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">MSME website</h3>
+                    <p class="mb-2">Website with product catalog features, whatsapp integration, and form order system
+                        dynamic.</p>
+                    <span class="text-sm text-teal-300">PHP Native, Bootstrap</span>
+                </div>
+
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Admin Dashboard</h3>
+                    <p class="mb-2">Admin panel to manage data, graphics, export data, and user management based
+                        Role.</p>
+                    <span class="text-sm text-teal-300">Laravel, Chart.js</span>
+                </div>
+
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Inventory system</h3>
+                    <p class="mb-2">Application for recording goods in & out, history, and monthly PDF reports.</p>
+                    <span class="text-sm text-teal-300">Laravel, Vue, DomPDF</span>
+                </div>
+
+                <div
+                    class="bg-slate-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 duration-300">
+                    <h3 class="text-xl font-semibold text-teal-300 mb-2">Landing Page Product</h3>
+                    <p class="mb-2">Landing Page High conversion for digital products, equipped with contact forms and
+                        buttons
+                        Buy directly.</p>
+                    <span class="text-sm text-teal-300">Tailwind CSS, Alpine.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal-300 mb-10">What the client says</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-6 rounded-xl">
+                    <p>"Fast service and very satisfying results.Cashier Systems that are made to help store operations
+We are neater and more efficient."</p>
+                    <span class="block mt-4 text-teal-300 font-semibold">- Rina, Grocery shop owner</span>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl">
+                    <p>"We are greatly helped by the MSME website that looks professional and easy to use.
+Many new customers since then."</p>
+                    <span class="block mt-4 text-teal-300 font-semibold">- Budi, Delicious chicken noodle owner</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-slate-800 text-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal-300 mb-6 text-left">Contact me</h2>
+            <p class="mb-8 text-left">Interested in working together or just discussing?I'm open to freelance,
+Startup collaboration, as well as personal projects.You can contact me via the following information:</p>
+
+            <div class="space-y-4 text-left">
+                <div>
+                    <span class="font-semibold text-teal-300">📍 Address:</span>
+                    <p class="container">Village Gador, Subdistrict Durenan, Trenggalek Regency, East Java Province, Indonesia</p>
+                </div>
+            </div>
+
+            <!-- Call-to-Action Buttons -->
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="https://wa.me/6285184690135" target="_blank"
+                    class="bg-teal-300 text-slate-900 font-semibold py-2 px-4 rounded-full hover:bg-teal-400 transition duration-300 flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+                <a href="mailto:mus3r56@gmail.com" target="_blank"
+                    class="bg-teal-300 text-slate-900 font-semibold py-2 px-4 rounded-full hover:bg-teal-400 transition duration-300 flex items-center gap-2">
+                    <i class="fas fa-envelope"></i>
+                    Send email
+                </a>
+                <a href="https://www.linkedin.com/in/fahmi-nur-fadillah-6ab919284/" target="_blank"
+                    class="bg-teal-300 text-slate-900 font-semibold py-2 px-4 rounded-full hover:bg-teal-400 transition duration-300 flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-slate-900 text-sm border-t border-slate-700">
+        <p>&copy; 2025 Fahmi Nur Fadillah.</p>
+    </footer>
+    <div class="fixed top-4 right-4 z-50">
+        <div id="google_translate_element"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
